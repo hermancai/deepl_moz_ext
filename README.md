@@ -1,0 +1,1 @@
+# Deepl Firefox Translator
