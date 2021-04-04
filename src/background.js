@@ -1,7 +1,7 @@
 // Extension appears in context menu if text is selected
 browser.contextMenus.create({
     id: "deepl-translate",
-    title: "Deepl Firefox Translator",
+    title: "Deepl Translator",
     contexts: ["selection"]
 });
 
@@ -18,7 +18,12 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
     switch (info.menuItemId) {
       case 'deepl-translate':
         browser.tabs.executeScript({
-           file: "contentScript.js"
-        });
+            file: "authkey.js"
+        }).then(browser.tabs.executeScript({
+            file: "contentScript.js"
+        }));
+        // browser.tabs.executeScript({
+        //    file: "contentScript.js"
+        // });
     }
 });
