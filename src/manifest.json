@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "Deepl Firefox Translator",
+    "name": "Deepl Translator",
     "version": "1.0",
 
     "description": "Uses Deepl to translate selected text on a webpage.",
@@ -18,7 +18,7 @@
 
     "browser_action": {
         "default_icon": "images/favicon.png",
-        "default_title": "Deepl Firefox Translator",
+        "default_title": "Deepl Translator",
         "default_popup": "popup/popup.html"
     }
 }
