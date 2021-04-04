@@ -22,8 +22,5 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
         }).then(browser.tabs.executeScript({
             file: "contentScript.js"
         }));
-        // browser.tabs.executeScript({
-        //    file: "contentScript.js"
-        // });
     }
 });
