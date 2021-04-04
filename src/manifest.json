@@ -10,7 +10,7 @@
         "48": "images/favicon.png"
     },
 
-    "permissions": ["activeTab", "contextMenus", "storage"],
+    "permissions": ["*://api.deepl.com/*", "activeTab", "contextMenus", "storage"],
 
     "background": {
         "scripts": ["background.js"]
