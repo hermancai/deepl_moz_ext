@@ -1,0 +1,18 @@
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 260px;
+    margin: 0;
+    padding: 0;
+}
+
+#deepl-ext-header {
+    padding: 15px 0px 15px 10px;
+    color: white;
+    background-color: #20396b;
+    margin-bottom: 10px;
+}
+
+#deepl-ext-header, #deepl-source-div, #deepl-target-div {
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
