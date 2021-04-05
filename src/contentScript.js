@@ -5,11 +5,12 @@ getLanguages()
     .then((languages) => {
         var url = "https://api.deepl.com/v2/translate?auth_key=" + authkey;
         var payload = buildPayload(languages);
-        fetchDeepl(url, payload)
-            .then((response) => {
-                // https://www.deepl.com/docs-api/translating-text/response/ 
-                displayResults(response.translations[0].text);
-            });
+        // fetchDeepl(url, payload)
+        //     .then((response) => {
+        //         // https://www.deepl.com/docs-api/translating-text/response/ 
+        //         displayResults(response.translations[0].text);
+        //     });
+        displayResults("testing");
     });
 
 
@@ -80,9 +81,9 @@ function createTextBox() {
 
     createHeader(container);
     createBody(container);
-    makeDraggable(container);
-
+    
     document.body.appendChild(container);
+    makeDraggable(container);
 }
 
 
@@ -95,11 +96,11 @@ function createHeader(container) {
     header.style.backgroundColor = "#20396b";
     header.style.color = "white";
     header.style.fontSize = "1.5em";
+    header.style.cursor = "move";
     
     var headerText = document.createElement("div");
     headerText.innerText = "Deepl Translator";
     headerText.style.display = "inline";
-    headerText.style.cursor = "move";
     headerText.style.marginRight = "100px";
     header.appendChild(headerText);
 
@@ -110,8 +111,8 @@ function createHeader(container) {
     closer.addEventListener("click", function() {
         container.remove();
     })
+    
     header.appendChild(closer);
-
     container.appendChild(header);
 }
 
@@ -132,7 +133,7 @@ function createBody(container) {
 // source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_draggable 
 function makeDraggable(container) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    container.onmousedown = dragMouseDown;
+    document.getElementById("deepl-ext-header").onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
         e = e || window.event;
