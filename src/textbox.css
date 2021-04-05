@@ -1,0 +1,32 @@
+#deepl-ext-container {
+    position: fixed;
+    border: 2px solid #20396b;
+    background-color: #20396b;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    max-width: 500px;
+}
+
+#deepl-ext-header {
+    background-color: #20396b;
+    padding: 10px;
+    color: white;
+    font-size: 1.5em;
+    cursor: move;
+}
+
+#deepl-header-text {
+    display: inline;
+    margin-right: 100px;
+}
+
+#deepl-header-closer {
+    float: right;
+    cursor: pointer;
+}
+
+#deepl-ext-body {
+    background-color: white;
+    padding: 10px;
+}

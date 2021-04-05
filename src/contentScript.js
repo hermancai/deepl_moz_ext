@@ -5,14 +5,12 @@ getLanguages()
     .then((languages) => {
         var url = "https://api.deepl.com/v2/translate?auth_key=" + authkey;
         var payload = buildPayload(languages);
-        // fetchDeepl(url, payload)
-        //     .then((response) => {
-        //         // https://www.deepl.com/docs-api/translating-text/response/ 
-        //         displayResults(response.translations[0].text);
-        //     });
-        displayResults("testing");
+        fetchDeepl(url, payload)
+            .then((response) => {
+                // https://www.deepl.com/docs-api/translating-text/response/ 
+                displayText(response.translations[0].text);
+            });
     });
-
 
 
 /**************************************
@@ -54,7 +52,7 @@ async function fetchDeepl(url, payload) {
  *************************************/
 
 // function to show translation onscreen
-function displayResults(text) {
+function displayText(text) {
     createTextBox();
 
     console.log(text);
@@ -71,13 +69,6 @@ function createTextBox() {
 
     var container = document.createElement("div");
     container.id = "deepl-ext-container";
-    container.style.position = "fixed";
-    container.style.border = "2px solid #20396b";
-    container.style.backgroundColor = "#20396b"
-    container.style.zIndex = "999999";
-    container.style.top = "0";
-    container.style.left = "0";
-    container.style.maxWidth = "500px";
 
     createHeader(container);
     createBody(container);
@@ -90,28 +81,20 @@ function createTextBox() {
 // function to make header for textbox
 function createHeader(container) {
     var header = document.createElement("div");
-
     header.id = "deepl-ext-header"
-    header.style.padding = "10px";
-    header.style.backgroundColor = "#20396b";
-    header.style.color = "white";
-    header.style.fontSize = "1.5em";
-    header.style.cursor = "move";
-    
+
     var headerText = document.createElement("div");
     headerText.innerText = "Deepl Translator";
-    headerText.style.display = "inline";
-    headerText.style.marginRight = "100px";
+    headerText.id = "deepl-header-text";
     header.appendChild(headerText);
 
     var closer = document.createElement("div");
     closer.innerText = "\u00D7";
-    closer.style.float = "right";
-    closer.style.cursor = "pointer";
+    closer.id = "deepl-header-closer";
     closer.addEventListener("click", function() {
         container.remove();
     })
-    
+
     header.appendChild(closer);
     container.appendChild(header);
 }
@@ -120,11 +103,7 @@ function createHeader(container) {
 // function to create body to hold translation text
 function createBody(container) {
     var bodyDiv = document.createElement("div");
-
     bodyDiv.id = "deepl-ext-body";
-    bodyDiv.style.backgroundColor = "white";
-    bodyDiv.style.padding = "10px";
-
     container.appendChild(bodyDiv);
 }
 

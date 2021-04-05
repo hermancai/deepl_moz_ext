@@ -21,6 +21,8 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
             file: "authkey.js"
         }).then(browser.tabs.executeScript({
             file: "contentScript.js"
+        })).then(browser.tabs.insertCSS({
+            file: "textbox.css"
         }));
     }
 });
